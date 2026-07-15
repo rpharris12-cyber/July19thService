@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hope in Ordinary Time · 19th July 2026</title>
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-deep: #162848;
+    --gold: #C9A84C;
+    --gold-light: #e8c97a;
+    --cream: #F7F5F0;
+    --white: #ffffff;
+    --text: #1a1a1a;
+    --quiet: #666666;
+    --stage: #8a7a5a;
+    --rule: #ddd8cc;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--navy);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  header::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin: 1.2rem auto 0;
+  }
+
+  header .eyebrow {
+    font-family: system-ui, sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  header h1 {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: normal;
+    color: var(--white);
+    font-style: italic;
+    line-height: 1.2;
+  }
+
+  header .meta {
+    font-family: system-ui, sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    margin-top: 0.9rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Tabs ── */
+  .tab-bar {
+    background: var(--navy-deep);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .tab-btn {
+    font-family: system-ui, sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    background: none;
+    border: none;
+    padding: 0.9rem 1.6rem;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+  }
+
+  .tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+  }
+
+  .tab-btn.active {
+    color: var(--gold);
+  }
+
+  .tab-btn.active::after {
+    transform: scaleX(1);
+  }
+
+  .tab-btn:hover {
+    color: var(--gold-light);
+  }
+
+  /* ── Content ── */
+  .tab-content {
+    display: none;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  /* ── Service flow ── */
+  .service-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0 1.5rem;
+    align-items: start;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .service-item:first-child {
+    padding-top: 0.5rem;
+  }
+
+  .service-item .element {
+    font-family: system-ui, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .service-item h3 {
+    font-size: 1.15rem;
+    font-weight: normal;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+  }
+
+  .service-item .notes {
+    font-size: 0.88rem;
+    color: var(--quiet);
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+  }
+
+  .service-item .timing {
+    font-family: system-ui, sans-serif;
+    font-size: 0.78rem;
+    color: var(--gold);
+    font-weight: 600;
+    white-space: nowrap;
+    padding-top: 0.2rem;
+  }
+
+  .service-item.highlight {
+    background: none;
+  }
+
+  .service-item.highlight h3 {
+    color: var(--navy);
+    font-weight: bold;
+  }
+
+  /* Responsive form */
+  .responsive-form {
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 1.2rem 1.4rem;
+    margin: 0.8rem 0 0.4rem;
+  }
+
+  .responsive-pair {
+    margin-bottom: 0.9rem;
+  }
+
+  .responsive-pair:last-child {
+    margin-bottom: 0;
+  }
+
+  .r-leader {
+    font-family: system-ui, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.15rem;
+  }
+
+  .r-leader-text {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.92rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .r-all {
+    font-family: system-ui, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.15rem;
+  }
+
+  .r-all-text {
+    color: #CADCFC;
+    font-style: italic;
+    font-size: 0.92rem;
+  }
+
+  /* Timing footer */
+  .timing-table {
+    margin-top: 2.5rem;
+    border-top: 2px solid var(--navy);
+  }
+
+  .timing-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-family: system-ui, sans-serif;
+    font-size: 0.85rem;
+  }
+
+  .timing-row.total {
+    border-bottom: none;
+    font-weight: bold;
+    color: var(--navy);
+    padding-top: 0.8rem;
+  }
+
+  .timing-row .t-time {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .timing-row.total .t-time {
+    color: var(--navy);
+  }
+
+  /* ── Reading intro / Sermon ── */
+  .section-label {
+    font-family: system-ui, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 2.2rem 0 0.6rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--gold);
+    display: block;
+  }
+
+  .section-label:first-child {
+    margin-top: 0.5rem;
+  }
+
+  .script-block {
+    margin-bottom: 1.4rem;
+  }
+
+  .script-block p {
+    margin-bottom: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .stage-note {
+    font-family: system-ui, sans-serif;
+    font-size: 0.83rem;
+    color: var(--stage);
+    font-style: italic;
+    background: rgba(201,168,76,0.08);
+    border-left: 2px solid var(--gold);
+    padding: 0.5rem 0.9rem;
+    margin: 0.9rem 0;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .spoken {
+    font-style: italic;
+    color: #2a2a2a;
+  }
+
+  .pause {
+    text-align: center;
+    color: var(--rule);
+    letter-spacing: 0.3em;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+
+  .emph {
+    font-weight: bold;
+    color: var(--navy);
+  }
+
+  .scripture {
+    background: var(--navy);
+    color: var(--white);
+    padding: 1.2rem 1.5rem;
+    border-radius: 4px;
+    margin: 1.2rem 0;
+    font-style: italic;
+    line-height: 1.9;
+  }
+
+  .scripture .ref {
+    display: block;
+    font-family: system-ui, sans-serif;
+    font-style: normal;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-top: 0.7rem;
+    text-transform: uppercase;
+  }
+
+  .sermon-move {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .sermon-move h3 {
+    font-size: 1.05rem;
+    font-weight: normal;
+    color: var(--navy);
+    font-family: system-ui, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.78rem;
+    margin-bottom: 1rem;
+  }
+
+  /* ── Print ── */
+  @media print {
+    .tab-bar { display: none; }
+    .tab-content { display: block !important; page-break-after: always; }
+    header { print-color-adjust: exact; }
+  }
+
+  @media (max-width: 600px) {
+    .tab-btn { padding: 0.8rem 0.9rem; font-size: 0.72rem; }
+    header { padding: 1.8rem 1rem 1.5rem; }
+    .tab-content { padding: 1.8rem 1rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">St Mary's Church Purton · Hope Series</div>
+  <h1>Hope in Ordinary Time</h1>
+  <div class="meta">Sunday 19th July 2026 &nbsp;·&nbsp; Psalm 139 &nbsp;·&nbsp; Romans 15:13</div>
+</header>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('flow', this)">Service Flow</button>
+  <button class="tab-btn" onclick="showTab('reading', this)">Reading Introduction</button>
+  <button class="tab-btn" onclick="showTab('sermon', this)">Sermon</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- TAB 1 — SERVICE FLOW                                          -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div id="flow" class="tab-content active">
+
+  <div class="service-item">
+    <div>
+      <div class="element">Opening</div>
+      <h3>Welcome and notices</h3>
+      <div class="notes">Peter. Frame the morning: "Ian's series on hope has finished — this is a bonus episode. Hope in the ordinary. You're in exactly the right place."</div>
+    </div>
+    <div class="timing">3 min</div>
+  </div>
+
+
+  <div class="service-item">
+    <div>
+      <div class="element">Banns of Marriage</div>
+      <h3>Banns of Marriage</h3>
+      <div class="notes">Read by Sandra. Richard gives a brief introduction before handing to Sandra to read the banns.</div>
+      </div>
+    <div class="timing">2 min</div>
+  </div>
+
+  <div class="service-item">
+    <div>
+      <div class="element">Song 1</div>
+      <h3>This Is Amazing Grace</h3>
+      <div class="notes">Accessible, singable. Theme of God's presence or goodness.<br>
+      <em>Opening worship — gathers people in</em></div>
+    </div>
+    <div class="timing">4 min</div>
+  </div>
+
+  <div class="service-item">
+    <div>
+      <div class="element">Confession</div>
+      <h3>Confession — Psalm 139:23–24</h3>
+      <div class="notes">Richard introduces with context about David and Psalm 139:23–24. Asks Peter why confession matters to him. Peter responds (60–90 seconds). Richard bridges into the responsive form.</div>
+      <div class="responsive-form">
+        <div class="responsive-pair">
+          <div class="r-leader">Leader</div>
+          <div class="r-leader-text">God, you know us better than we know ourselves.</div>
+          <div class="r-all">All</div>
+          <div class="r-all-text">We're glad of that today.</div>
+        </div>
+        <div class="responsive-pair">
+          <div class="r-leader">Leader</div>
+          <div class="r-leader-text">We bring what we'd rather not admit — the fear, the anger, the times we got it wrong.</div>
+          <div class="r-all">All</div>
+          <div class="r-all-text">All of it. Not just the tidy version.</div>
+        </div>
+        <div class="responsive-pair">
+          <div class="r-leader">Leader</div>
+          <div class="r-leader-text">We're not here to pretend.</div>
+          <div class="r-all">All</div>
+          <div class="r-all-text">We're here to be known — and to start again.</div>
+        </div>
+        <div class="responsive-pair">
+          <div class="r-leader">Leader</div>
+          <div class="r-leader-text">Search us, God. Know our hearts.</div>
+          <div class="r-all">All</div>
+          <div class="r-all-text">And lead us in the right way. Amen.</div>
+        </div>
+      </div>
+      <div class="notes" style="margin-top:0.5rem"><em>Short silence. Then: "The God who already knows us completely — and loves us anyway — welcomes us in. Amen."</em><br>Go straight into Part 1 — no song here.</div>
+    </div>
+    <div class="timing">3–4 min</div>
+  </div>
+
+  <div class="service-item">
+    <div>
+      <div class="element">Part 1</div>
+      <h3>Q&amp;A — Our daily rhythm with God</h3>
+      <div class="notes">Richard opens with context and introduces the three speakers. Peter interviews each in turn (roving microphone). Richard closes with the bridge line: <em>"None of those were dramatic. None of them were mountaintop moments. Just small, repeated, easily-missed things. Hold onto that."</em></div>
+    </div>
+    <div class="timing">8 min</div>
+  </div>
+
+  <div class="service-item">
+    <div>
+      <div class="element">Song 2</div>
+      <h3>Christ Be In My Waking</h3>
+      <div class="notes">Reflective, drawing inward before the psalm. Two verses and a chorus.<br>
+      <em>"In my waking, in my sleeping" — echoes Psalm 139's sitting and rising</em></div>
+    </div>
+    <div class="timing">4 min</div>
+  </div>
+
+  <div class="service-item">
+    <div>
+      <div class="element">Reading</div>
+      <h3>Reading introduction + Psalm 139:1–24</h3>
+      <div class="notes">Richard introduces the reading — see the <strong>Reading Introduction</strong> tab for the full script. Full psalm read aloud including vv.19–22. Unhurried.</div>
+    </div>
+    <div class="timing">5–6 min</div>
+  </div>
+
+  <div class="service-item">
+    <div>
+      <div class="element">Song 3</div>
+      <h3>Be Thou My Vision</h3>
+      <div class="notes">Quiet and ruminative. Two verses and a chorus.<br>
+      <em>Ancient and reflective — draws people inward before the sermon</em></div>
+    </div>
+    <div class="timing">4 min</div>
+  </div>
+
+  <div class="service-item highlight">
+    <div>
+      <div class="element">Part 2</div>
+      <h3>Sermon — Hope in Ordinary Time</h3>
+      <div class="notes">Richard. See the <strong>Sermon</strong> tab for the full script. Arc: callback to Part 1 → defining hope → series recap → known in the ordinary → Timothy story → the honest turn (vv.19–22) → garden and roots → closing image.</div>
+    </div>
+    <div class="timing">12 min</div>
+  </div>
+
+  <div class="service-item">
+    <div>
+      <div class="element">Song 4</div>
+      <h3>How Deep the Father's Love For Us</h3>
+      <div class="notes">Rootedness, being known, grace. Let the closing image settle.<br>
+      <em>Slow and contemplative — lets the closing image breathe</em></div>
+    </div>
+    <div class="timing">4 min</div>
+  </div>
+
+  <div class="service-item">
+    <div>
+      <div class="element">Intercessions</div>
+      <h3>Prayers for others + Lord's Prayer</h3>
+      <div class="notes">Led by David. Four bidding prayers, each followed by a short silence and <em>Lord in your mercy / Hear our prayer.</em>
+      <ul style="margin:0.6rem 0 0.6rem 1.2rem; font-size:0.88rem; color: var(--quiet); line-height:1.7">
+        <li>Hope for those facing uncertainty and anxiety this week.</li>
+        <li>Hope for those facing illness, difficulty, or trial.</li>
+        <li>Hope for those for whom eternity feels close — the dying, the bereaved, those walking alongside them.</li>
+        <li>Hope for this church in its ordinary life — that we would tend our roots faithfully, and be ready with hope when someone beside us needs it.</li>
+      </ul>
+      Close with the Lord's Prayer — traditional form.</div>
+    </div>
+    <div class="timing">5–6 min</div>
+  </div>
+
+  <div class="service-item">
+    <div>
+      <div class="element">Sending out</div>
+      <h3>Sending out and blessing</h3>
+      <div class="notes">Richard. <em>"Go and tend your garden this week. Small, ordinary, repeated. The roots are already doing more than you can see."</em><br>Blessing — Romans 15:13: <em>"May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit. Amen."</em></div>
+    </div>
+    <div class="timing">1–2 min</div>
+  </div>
+
+  <div class="service-item" style="border-bottom:none">
+    <div>
+      <div class="element">Song 5</div>
+      <h3>Everlasting God</h3>
+      <div class="notes">Energy — sends people out.<br>
+      <em>"Strength will rise as we wait upon the Lord" — sends people out with energy</em></div>
+    </div>
+    <div class="timing">4–5 min</div>
+  </div>
+
+  <div class="timing-table">
+    <div class="timing-row"><span>Welcome and notices</span><span class="t-time">3 min</span></div>
+    <div class="timing-row"><span>Banns of Marriage</span><span class="t-time">2 min</span></div>
+    <div class="timing-row"><span>This Is Amazing Grace</span><span class="t-time">4 min</span></div>
+    <div class="timing-row"><span>Confession (with Peter)</span><span class="t-time">3–4 min</span></div>
+    <div class="timing-row"><span>Part 1 — Q&amp;A</span><span class="t-time">8 min</span></div>
+    <div class="timing-row"><span>Song — bridge to reading</span><span class="t-time">4 min</span></div>
+    <div class="timing-row"><span>Reading introduction + Psalm 139</span><span class="t-time">5–6 min</span></div>
+    <div class="timing-row"><span>Song — before sermon</span><span class="t-time">4 min</span></div>
+    <div class="timing-row"><span>Part 2 — Sermon</span><span class="t-time">12 min</span></div>
+    <div class="timing-row"><span>Song — response to sermon</span><span class="t-time">4 min</span></div>
+    <div class="timing-row"><span>Intercessions + Lord's Prayer</span><span class="t-time">5–6 min</span></div>
+    <div class="timing-row"><span>Sending out + blessing + final song</span><span class="t-time">6–7 min</span></div>
+    <div class="timing-row total"><span>Total</span><span class="t-time">58–66 min</span></div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- TAB 2 — READING INTRODUCTION                                  -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div id="reading" class="tab-content">
+
+  <span class="section-label">Spoken by Richard · between the song and the psalm reading</span>
+
+    <div class="script-block">
+    <p>In a moment Christine is going to read Psalm 139. Before she does, I want to tell you what to listen for.</p>
+
+    <p>Over recent weeks we've looked at hope in some of life's biggest moments — anxiety, illness, eternity, death. Intense, urgent, threshold moments. This psalm feels different from many of David's. He's not on a battlefield. He's not in crisis. He's just going about his day — and being struck, in the middle of it, by how close God actually is.</p>
+
+    <p>That's where we're going this morning.</p>
+
+    <p>It moves through four stages, and it's worth knowing where it's going.</p>
+
+    <div class="pause">· · ·</div>
+
+    <p>It opens with God being <span class="emph">close</span>. Ordinarily, inescapably close — in the sitting and the rising, the going out and the lying down. Much like what we just heard from our three contributors.</p>
+
+    <p>Then it widens: God has <span class="emph">always</span> been close — before birth, before a single day was lived, before anyone else even knew we existed.</p>
+
+    <p>Then David does something surprising. He lays down what's actually on his heart. Not the tidy version — the real one. The anger, the fear, the people he can't stop thinking about. Verses 19 to 22 are uncomfortable reading, and I don't want us to skip past them. They're there because David doesn't hide what he really feels in front of God. He brings the whole thing to God.</p>
+
+    <p>And then, at the end, he turns it back on himself. Search me. Know my heart. See if there's anything in me that needs changing. Lead me.</p>
+
+    <div class="pause">· · ·</div>
+
+    <p>It's not a resolved prayer. It's an honest one.</p>
+
+    <div class="pause">· · ·</div>
+
+    <p>Listen for that movement.</p>
+  </div>
+
+  <div class="stage-note">Hand to Christine.</div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- TAB 3 — SERMON                                                -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div id="sermon" class="tab-content">
+
+  <span class="section-label">Part 2 · Psalm 139 · 12 minutes</span>
+
+  <div class="sermon-move">
+    <h3>Opening — callback, then defining hope</h3>
+    <div class="script-block">
+      <p>A little earlier, our three contributors told us about the small, ordinary things that keep them rooted in God. Nothing dramatic. Nothing you'd put in a highlight reel. Just small, repeated things, most days. And then we heard the psalm that's been doing that same thing for three thousand years.</p>
+      <p>I want to spend a few minutes on why that ordinary, repeated rhythm matters more than we tend to think.</p>
+      <p>But first — a quick word on what we mean by "hope." It isn't wishful thinking — hoping it doesn't rain, hoping the traffic isn't bad. Biblical hope is something firmer than that. It's not based on how we feel. It's based on who God is, and what he's already done. Paul calls it hope that doesn't put us to shame, because it's anchored in God's love — not our circumstances. It's solid ground. Not crossed fingers.</p>
+    </div>
+  </div>
+
+  <div class="sermon-move">
+    <h3>Series recap and thesis</h3>
+    <div class="script-block">
+      <p>Over the past few weeks we've been working through a series on hope, built around our verse of the year, Romans 15:13. We've looked at hope in the face of uncertainty, trouble, eternity, and death. Four big moments.</p>
+      <p>And here's what struck me, looking at that list: every one of those is <span class="emph">exceptional</span>. They're the moments that interrupt ordinary life. None of us gets a calendar invite for a crisis. So here's the question I've been sitting with: what actually builds people — what builds a church — that can hold hope out to each other when one of those moments arrives? I don't think it gets built in the moment itself. I think it gets built slowly. In all the ordinary weeks in between.</p>
+      <div class="pause">· · ·</div>
+      <p>So this morning isn't about doing more. It's about noticing that the quiet, repeated, unremarkable rhythm of an ordinary Wednesday is already doing more than we give it credit for.</p>
+    </div>
+  </div>
+
+  <div class="sermon-move">
+    <h3>Move 1 — known in the ordinary</h3>
+    <div class="script-block">
+      <p>Psalm 139 is a good place to start, because it isn't written from a battlefield, a hospital bed, or a graveside — and David knew all three. The psalmist is just going about his day. And in the middle of that ordinary day — much like the ones we heard about earlier — he's struck by something: he is <span class="emph">known</span>. Completely. Before he sits down. Before he says a word. Before he's gone anywhere. God already knows.</p>
+      <p>The psalm opens with this — you have searched me, you know when I sit and when I rise, you know my thoughts from a distance, and before a word is even on my tongue, you know it completely.</p>
+      <div class="pause">· · ·</div>
+      <p>That's not a crisis prayer. That's an <span class="emph">ordinary-day</span> prayer. And that's exactly the point. If hope is solid ground rather than wishful thinking, this is where the ground gets laid — not in the dramatic moment, but in being known on a day when nothing much is happening.</p>
+      <p>What our three contributors told us this morning shows there are many different ways into this. Different rhythms, different habits, different shapes — and every one of them has kept them closer to what we just heard in that psalm. For others it might look different again — something older, like morning and evening prayer, the rhythm Christians have leaned on for centuries. None of it prescriptive. We do what works for us, because we want to draw closer to God. It's not about the method.</p>
+      <div class="pause">· · ·</div>
+      <p>It's about staying within reach of the fact that you're known, however that happens for you.</p>
+    </div>
+  </div>
+
+  <div class="sermon-move">
+    <h3>Move 2 — the Timothy story</h3>
+    <div class="stage-note">Tell this conversationally — don't read it. Let the surprise and the laughter land before the turn.</div>
+    <div class="script-block">
+      <p>Let me tell you something that happened in our family recently.</p>
+      <p>We were expecting a grandchild. We were told it was a boy. We were confident enough that we'd already picked a name — Timothy. We talked about Timothy for months. Pictured Timothy. And then Timothy arrived...</p>
+      <div class="pause">· · ·</div>
+      <p>and Timothy was a girl.</p>
+      <div class="stage-note">Let the laughter land. Do not talk over it. Wait it out fully.</div>
+      <p>Fairly minor mix-up, in the scheme of things — a scan, a guess, an assumption that didn't hold. But it got me thinking about verses 13 to 16 of that same psalm:</p>
+      <div class="scripture">
+        You formed my inward parts,<br>
+        you knitted me together in my mother's womb.<br>
+        My frame wasn't hidden from you<br>
+        when I was being formed in secret.<br>
+        All my days were written in your book<br>
+        before a single one of them came to be.
+        <span class="ref">Psalm 139:13–16</span>
+      </div>
+      <p>We didn't know whether our grandchild was a boy or a girl until she arrived. The hospital didn't fully know either. But God knew. Not guessed — <span class="emph">knew</span>. Before the scan, before the name, before any of our expectations were even formed, she was already known completely, every day of her life already written down. Our certainty was wrong. His knowledge never was.</p>
+      <div class="pause">· · ·</div>
+      <div class="stage-note">One short sentence at a time — give each one a beat.</div>
+      <p>He knew her before any of us did. And he's not waiting for us to get it right before he shows up, either. He's already there — in the ordinary Wednesdays, the same as he was with her, before anyone else even knew.</p>
+      <div class="pause">· · ·</div>
+      <p>That's what ordinary-time hope rests on. Not our predictions, which we get wrong all the time. Just the plain fact that we're known, named, and held — by someone whose knowledge of us never needed correcting.</p>
+    </div>
+  </div>
+
+  <div class="sermon-move">
+    <h3>Move 2b — the honest turn (vv.19–22)</h3>
+    <div class="script-block">
+      <p>But as we heard — the psalm doesn't stay in that reassuring place. Verses 19 to 22 take a sharp turn. The anger, the fear, the enemies David can't stop thinking about. He doesn't tidy it away. He brings the whole thing.</p>
+      <div class="pause">· · ·</div>
+      <p>And that's part of what ordinary faithfulness looks like too. Not just the gratitude and the quiet moments. All of it. You are still searched and known in the middle of all of that. Verse 23 brings the psalm back to exactly that place — search me, God, and know my heart.</p>
+      <div class="pause">· · ·</div>
+      <p>Not tidy. Not resolved. But known. Still held.</p>
+    </div>
+  </div>
+
+  <div class="sermon-move">
+    <h3>Move 3 — bringing it together</h3>
+    <div class="script-block">
+      <p>There's something worth saying about a garden, even without scripture to back it up. Nobody stands over a flowerbed every single day demanding to see something happen. Most of the work a plant does, it does where you can't see it — underground, before there's anything to show for it.</p>
+      <div class="pause">· · ·</div>
+      <p>Long before a single flower appears, the roots are already going down, quietly, day after unremarkable day. By the time you see the flower, the real work's long since been done, out of sight.</p>
+      <p>That's what ordinary, daily faithfulness with God is like. We're more certain of his hope for the moments we're called to encourage someone else, precisely because of all those quiet, unremarkable days that came before — the days where nothing visible was happening, but the roots were already going down. That certainty doesn't get manufactured in a crisis.</p>
+      <div class="pause">· · ·</div>
+      <p>It's grown slowly, out of all the Wednesdays where nothing much seemed to be happening at all.</p>
+      <div class="stage-note">Direct eye contact with the three speakers here, if possible.</div>
+      <p>Think back to our three contributors this morning. Nothing dramatic in what they told us. That's rather the point. There's no single right pattern here. What works for you, works for you. And if you miss a day — you will — don't beat yourself up about it. Go back to it tomorrow.</p>
+      <div class="pause">· · ·</div>
+      <p>A plant survives a missed watering. What matters is going back to it.</p>
+      <p>If you want a small nudge for the week ahead: try a hymn you've never sat with properly, or open a book of the Bible you've never spent time in. But don't mistake that for the point. The point isn't novelty.</p>
+      <div class="pause">· · ·</div>
+      <p>The point is that the rhythm you already have — however small — is already doing its work, mostly out of sight.</p>
+    </div>
+  </div>
+
+  <div class="sermon-move">
+    <h3>Closing image</h3>
+    <div class="stage-note">Slowest, quietest moment in the sermon. Let it sit. Don't rush into the prayer.</div>
+    <div class="script-block">
+      <div class="pause">· · ·</div>
+      <p>Roots don't announce themselves.</p>
+      <p>They don't need to.</p>
+      <div class="pause">· · ·</div>
+      <p>They're already holding you steady,<br>long before anyone sees a single flower.</p>
+      <div class="pause">· · ·</div>
+    </div>
+  </div>
+
+  <div class="sermon-move">
+    <h3>Closing prayer</h3>
+    <div class="script-block">
+      <p class="spoken">Lord, you have searched us and known us, in our ordinary days as much as our extraordinary ones. Thank you that we are known before a word is on our tongue, with every day already written in your book. Teach us to bring all of it to you — the gratitude and the fear, the quiet moments and the things we'd rather not name. And as we tend the ordinary rhythm of our days, grow roots in us that run deeper than we can see, so that when eternity presses close — for us, or for someone beside us — we've got hope enough to hold out to one another. Search us, know our hearts, and lead us. In Jesus' name, Amen.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
